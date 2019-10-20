@@ -61,32 +61,32 @@
                     <table class="table table-hover table-striped table-sm table-light">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col" class="text-center">#</th>
                                 <th scope="col">Team Name</th>
-                                <th scope="col">P</th>
-                                <th scope="col">W</th>
-                                <th scope="col">D</th>
-                                <th scope="col">L</th>
-                                <th scope="col">F</th>
-                                <th scope="col">A</th>
-                                <th scope="col">GD</th>
-                                <th scope="col">Pts</th>
+                                <th scope="col" class="text-center">P</th>
+                                <th scope="col" class="text-center">W</th>
+                                <th scope="col" class="text-center">D</th>
+                                <th scope="col" class="text-center">L</th>
+                                <th scope="col" class="text-center">F</th>
+                                <th scope="col" class="text-center">A</th>
+                                <th scope="col" class="text-center">GD</th>
+                                <th scope="col" class="text-center">Pts</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1;
                             foreach ($data as $kls) : ?>
                                 <tr>
-                                    <th scope="row"><?= $no; ?></th>
+                                    <th scope="row" class="text-center"><?= $no; ?></th>
                                     <td><?= $kls['name'] ?></td>
-                                    <td><?= $kls['p'] ?></td>
-                                    <td><?= $kls['w'] ?></td>
-                                    <td><?= $kls['d'] ?></td>
-                                    <td><?= $kls['l'] ?></td>
-                                    <td><?= $kls['f'] ?></td>
-                                    <td><?= $kls['a'] ?></td>
-                                    <td><?= $kls['gd'] ?></td>
-                                    <td><?= $kls['pts'] ?></td>
+                                    <td class="text-center"><?= $kls['p'] ?></td>
+                                    <td class="text-center"><?= $kls['w'] ?></td>
+                                    <td class="text-center"><?= $kls['d'] ?></td>
+                                    <td class="text-center"><?= $kls['l'] ?></td>
+                                    <td class="text-center"><?= $kls['f'] ?></td>
+                                    <td class="text-center"><?= $kls['a'] ?></td>
+                                    <td class="text-center"><?= $kls['gd'] ?></td>
+                                    <td class="text-center"><?= $kls['pts'] ?></td>
                                 </tr>
                             <?php $no++;
                             endforeach; ?>
