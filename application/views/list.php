@@ -21,7 +21,7 @@
                         <div class="card" style="width: 100%;">
                             <form action="" method="post">
                                 <div class="row">
-                                    <div class="col-5">
+                                    <div class="col-5 perhitungan">
                                         <div class="card-body text-center">
                                             <select class="btn btn-secondary" name="tim1" id="tim1">
                                                 <?php
@@ -30,12 +30,12 @@
                                                     <option><?= $kls['name']; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
-                                            <h1 class="card-text display-1">2</h1>
+                                            <h1 class="card-text display-1" id="skor1">0</h1>
                                         </div>
                                         <div class="card-body text-center">
                                             <div class="btn-group" role="group" aria-label="">
                                                 <button type="button" class="btn btn-primary" name="kurang1" id="kurang1">-</button>
-                                                <button type="button" class="btn btn-primary" name="tambah1" id="kurang2">+</button>
+                                                <button type="button" class="btn btn-primary" name="tambah1" id="tambah1">+</button>
                                             </div>
                                         </div>
                                     </div>
@@ -49,7 +49,7 @@
                                                     <option><?= $kls['name']; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
-                                            <h1 class="card-text display-1">2</h1>
+                                            <h1 class="card-text display-1" id="skor2">0</h1>
                                         </div>
                                         <div class="card-body text-center">
                                             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
@@ -113,15 +113,88 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script>
         var kurang1 = document.getElementById('kurang1');
-        var kurang2 = document.getElementById('kurang1');
+        var kurang2 = document.getElementById('kurang2');
         var tambah1 = document.getElementById('tambah1');
         var tambah2 = document.getElementById('tambah2');
 
-        kurang1.addEventListener('click', function() {
+        var skor1 = document.getElementById('skor1');
+        var skor2 = document.getElementById('skor2');
+        var skr1 = 1;
+        var skr2 = 1;
 
+        tambah1.addEventListener('click', function() {
+            var xhr = new XMLHttpRequest();
+            var hasil = skr1++;
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var skr1 = document.getElementById("skor1").innerHTML = hasil;
+                    return skr1;
+                }
+            }
+
+            xhr.open('post', '', true);
+            xhr.send();
         });
+        tambah2.addEventListener('click', function() {
+            var xhr = new XMLHttpRequest();
+            var hasil = skr2++;
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var skr2 = document.getElementById("skor2").innerHTML = hasil;
+                    return skr2;
+                }
+            }
+
+            xhr.open('post', '', true);
+            xhr.send();
+        });
+
+
+        kurang1.addEventListener('click', function() {
+            var xhr = new XMLHttpRequest();
+            var hasil = skr1--;
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var skr1 = document.getElementById("skor1").innerHTML = hasil;
+                    return skr1;
+                }
+            }
+
+            xhr.open('post', '', true);
+            xhr.send();
+        });
+        kurang2.addEventListener('click', function() {
+            var xhr = new XMLHttpRequest();
+            var hasil = skr2--;
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var skr2 = document.getElementById("skor2").innerHTML = hasil;
+                    return skr2;
+                }
+            }
+
+            xhr.open('post', '', true);
+            xhr.send();
+        });
+
+        console.log(skor1);
+        console.log(skor2);
+
+        // tambah1.addEventListener('click', function() {
+        // let skor1 = 0;
+        // var xhr = new XMLHttpRequest();
+
+        // xhr.onreadystatechange = function() {
+        // if (xhr.readyState == 4 && xhr.status == 200) {
+        // let hasil = skor1 + 1;
+        // if (hasil <= 0) { // hasil=0; // } // console.log(hasil); // } // } // xhr.open('post', '' , true); // xhr.send(); // }); 
     </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
